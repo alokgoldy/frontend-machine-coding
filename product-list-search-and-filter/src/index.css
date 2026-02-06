@@ -1,0 +1,27 @@
+.app {
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+input {
+  padding: 8px;
+  margin-bottom: 16px;
+  width: 250px;
+}
+
+select {
+  padding: 8px;
+  margin-left: 12px;
+}
