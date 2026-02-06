@@ -1,21 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { products } from './data';
 import ProductList from './components/ProductList';
+import useDebounce from "./hooks/useDebounce";
 
 function App() {
   const [search, setSearch] = useState('');
-  const [debouncedSearch, setDebouncedSearch] = useState('');
   const [category, setCategory] = useState('ALL');
   const [sort, setSort] = useState('NONE');
 
+  const debouncedSearch = useDebounce(search, 300);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedSearch(search);
-    }, 300);
-    return () => clearTimeout(timer);
-  }, [search])
-  
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setDebouncedSearch(search);
+  //   }, 300);
+  //   return () => clearTimeout(timer);
+  // }, [search])
+
   const filteredProducts = (products || []).filter((product) =>
     product?.name?.toLowerCase()?.includes(debouncedSearch?.toLowerCase()))
     .filter((product) => category === 'ALL' ? true : product.category === category)
