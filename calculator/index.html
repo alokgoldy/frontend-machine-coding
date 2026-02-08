@@ -98,7 +98,8 @@
         function solve() {
             let x = document.getElementById("result").value;
             try {
-                const y = Function(`"use strict"; return (${x})`)();
+                let y = Function(`"use strict"; return (${x})`)();
+                y = eval(x);
                 document.getElementById("result").value = y;
             } catch (err) {
                 alert("Invalid expression");
