@@ -101,6 +101,7 @@
                 let y = Function(`"use strict"; return (${x})`)();
                 y = eval(x);
                 y = calculate(x);
+                y = calculate2(x);
                 document.getElementById("result").value = y;
             } catch (err) {
                 alert("Invalid expression");
@@ -140,6 +141,59 @@
             return result;
         }
 
+        function calculate2(exp) {
+            let num = '';
+            const st = [];
+
+            for (let i = 0; i < exp.length; i++) {
+                const ch = exp[i];
+                if (ch >= '0' && ch <= '9') {
+                    num += ch;
+                } else if (ch == '*' || ch == '/' || ch == '+' || ch == '-') {
+                    st.push(Number(num));
+                    num = '';
+                    st.push(ch);
+                }
+            }
+
+            if (num !== '') {
+                st.push(Number(num));
+                num = '';
+            }
+            if (st.length === 0) return 0;
+
+            const temp = [];
+            let i = 0;
+
+            while (i < st.length) {
+                if (st[i] == '*' || st[i] == '/') {
+                    const prev = temp.pop();
+                    const next = st[i + 1];
+
+                    const result = st[i] == '*' ?
+                        prev * next
+                        : Math.trunc(prev / next);
+
+                    temp.push(result);
+                    i += 2;
+                } else {
+                    temp.push(st[i]);
+                    i++;
+                }
+            }
+
+            let result = temp[0];
+
+            console.log(result, 'result')
+            for (let i = 1; i < temp.length; i += 2) {
+                const op = temp[i];
+                const num = temp[i + 1];
+
+                if (op === '+') result += num;
+                else result -= num;
+            }
+            return result;
+        }
         function clr() {
             document.getElementById("result").value = "";
             document.getElementById("result").value = y;
