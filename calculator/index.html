@@ -3,7 +3,50 @@
 
 <head>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
 
+        .fire {
+            animation: burn 1s ease-out;
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        @keyframes burn {
+            0% {
+                box-shadow: 0 0 5px #ff4500;
+                background-color: #fff5f5;
+            }
+
+            20% {
+                box-shadow: 0 0 15px #ff4500, 0 0 25px #ff8c00;
+                background-color: #ffe0e0;
+                transform: scale(1.02);
+            }
+
+            50% {
+                box-shadow: 0 0 25px #ff0000, 0 0 35px #ff4500, 0 0 45px #ff8c00;
+                background-color: #ffcccc;
+                transform: scale(1.05);
+            }
+
+            80% {
+                box-shadow: 0 0 15px #ff4500;
+                background-color: #ffe0e0;
+                transform: scale(1.02);
+            }
+
+            100% {
+                box-shadow: none;
+                background-color: white;
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 
@@ -102,7 +145,14 @@
                 y = eval(x);
                 y = calculate(x);
                 y = calculate2(x);
-                document.getElementById("result").value = y;
+                const resultInput = document.getElementById("result");
+                resultInput.value = y;
+
+                // Add fire effect
+                resultInput.classList.add("fire");
+                setTimeout(() => {
+                    resultInput.classList.remove("fire");
+                }, 1000);
             } catch (err) {
                 // alert
                 alert("Invalid expression");
