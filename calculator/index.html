@@ -100,11 +100,46 @@
             try {
                 let y = Function(`"use strict"; return (${x})`)();
                 y = eval(x);
+                y = calculate(x);
                 document.getElementById("result").value = y;
             } catch (err) {
                 alert("Invalid expression");
             }
         }
+
+        function calculate(expression) {
+            const tokens = expression.match(/\d+|\+|\-|\*|\//g);
+            if (!tokens) return 0;
+
+            // Handle * and /
+            let stack = [];
+            let current = Number(tokens[0]);
+
+            for (let i = 1; i < tokens.length; i += 2) {
+                const operator = tokens[i];
+                const next = Number(tokens[i + 1]);
+
+                if (operator === "*") current *= next;
+                else if (operator === "/") current /= next;
+                else {
+                    stack.push(current);
+                    stack.push(operator);
+                    current = next;
+                }
+            }
+
+            stack.push(current);
+
+            // Handle + and -
+            let result = stack[0];
+            for (let i = 1; i < stack.length; i += 2) {
+                if (stack[i] === "+") result += stack[i + 1];
+                else result -= stack[i + 1];
+            }
+
+            return result;
+        }
+
         function clr() {
             document.getElementById("result").value = "";
             document.getElementById("result").value = y;
