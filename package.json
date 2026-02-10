@@ -1,0 +1,19 @@
+{
+  "name": "frontend-machine-coding",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@html-eslint/eslint-plugin": "^0.54.2",
+    "@html-eslint/parser": "^0.54.0",
+    "eslint": "^10.0.0",
+    "globals": "^17.3.0"
+  }
+}
