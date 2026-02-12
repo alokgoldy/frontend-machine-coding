@@ -19,6 +19,7 @@ body {
     background-color: rgb(231, 231, 231);
 }
 
+
 header {
     width: 100%;
     display: flex;
@@ -29,10 +30,10 @@ header {
 }
 
 .heading {
-    color: green;
+    color: #966b9d;
 }
 
-.title{
+.title {
     font-weight: 400;
     letter-spacing: 1.5px;
 }
@@ -67,13 +68,13 @@ header {
     cursor: pointer;
 }
 
-.slider{
+.slider {
     height: 60px;
     width: 150px;
     border-radius: 50px;
     background-image: linear-gradient(to right,
-            rgb(255, 195, 110),
-            rgb(255, 146, 91));
+    rgb(255,195,110),
+    rgb(255,146,91));
     position: absolute;
     top: 20px;
     left: 100px;
@@ -90,10 +91,52 @@ header {
     padding: 20px 0;
     display: flex;
     position: relative;
-    transition: all 0.5s ease-in-out;
+    transition: all, 0.5s ease-in-out;
     left: 0px;
 }
 
 .form-section-move {
     left: -500px;
+}
+
+.login-box,
+.signup-box {
+    height: 100%;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+}
+
+.login-box {
+    gap: 50px;
+}
+.signup-box {
+    gap: 30px;
+}
+
+.ele {
+    height: 60px;
+    width: 400px;
+    outline: none;
+    border: none;
+    color: rgb(77, 77, 77);
+    background-color: rgb(240, 240, 240);
+    border-radius: 50px;
+    padding-left: 30px;
+    font-size: 18px;
+}
+
+.clkbtn {
+    height: 60px;
+    width: 150px;
+    border-radius: 50px;
+    background-image: linear-gradient(to right,
+            rgb(255, 195, 110),
+            rgb(255, 146, 91));
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
 }
