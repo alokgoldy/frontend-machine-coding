@@ -1,0 +1,176 @@
+:root {
+    --primary-color: #4a90e2;
+    --primary-dark: #357abd;
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+    --text-color: #333;
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --input-bg: #f8f9fa;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    background-image: radial-gradient(#dfe6e9 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.captcha-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.captcha-card:hover {
+    transform: translateY(-5px);
+}
+
+header h2 {
+    color: var(--text-color);
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+}
+
+header p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.captcha-display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Changed from center to space-between for better spacing */
+    gap: 10px; /* Reduced gap slightly */
+    margin-bottom: 25px;
+    background: var(--input-bg);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e1e1e1;
+    overflow: hidden; /* Ensure nothing spills out */
+}
+
+canvas {
+    background: transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    max-width: 100%; /* Allow shrinking */
+    height: auto; /* Maintain aspect ratio */
+    flex: 1; /* Allow canvas to take available space */
+    object-fit: contain;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    flex-shrink: 0; /* Prevent button from being crushed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.icon-btn:hover {
+    background-color: rgba(74, 144, 226, 0.1);
+    transform: rotate(180deg);
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: var(--input-bg);
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary-color);
+    background-color: #fff;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+.status-message {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    min-height: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.status-message.show {
+    opacity: 1;
+}
+
+.status-message.success {
+    color: var(--success-color);
+}
+
+.status-message.error {
+    color: var(--error-color);
+}
+
+@media (max-width: 480px) {
+    .captcha-card {
+        padding: 20px;
+    }
+    /* Removed problematic canvas width: 100% which was causing layout issues */
+}
