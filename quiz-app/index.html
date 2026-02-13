@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="app-header">
+        <h1>Quiz Master</h1>
+        <div class="timer-container" id="timer-container">
+          Time Left: <span id="timer">00:00</span>
+        </div>
+      </header>
+
+      <main class="quiz-container" id="quiz-container">
+        <div class="progress-bar-container">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="question-header">
+          <span class="question-number" id="question-number">Question 1/5</span>
+          <span class="score-display">Score: <span id="current-score">0</span></span>
+        </div>
+            
+        <div class="question-content">
+          <h2 id="question-text">Loading question...</h2>
+          <div class="options-container" id="options-container">
+            <!-- Options will be injected here -->
+          </div>
+        </div>
+
+        <div class="navigation-buttons">
+          <button
+            id="prev-btn"
+            class="btn btn-secondary"
+            disabled
+          >Previous</button>
+          <button id="next-btn" class="btn btn-primary">Next</button>
+        </div>
+      </main>
+
+      <section class="result-container hidden" id="result-container">
+        <h2>Quiz Completed!</h2>
+        <div class="score-summary">
+          <p>Your Score: <span id="final-score">0</span> / <span id="total-score">0</span></p>
+          <p id="feedback-message"></p>
+        </div>
+        <button id="restart-btn" class="btn btn-primary">Restart Quiz</button>
+      </section>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
