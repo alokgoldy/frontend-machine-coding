@@ -208,7 +208,27 @@ function endQuiz(timeRanOut = false) {
         feedbackMessage.textContent = "Time's up! Here is your result.";
     } else {
         const percentage = (score / quizData.length) * 100;
-        if (percentage >= 80) {
+        
+        // Remove previous tada class if any
+        resultContainer.classList.remove('tada');
+
+        if (score === quizData.length) {
+            feedbackMessage.textContent = "Perfect! You got all questions right!";
+            feedbackMessage.style.color = "var(--success-color)";
+            
+            // Trigger confetti
+            if (typeof window.confetti === 'function') {
+                window.confetti({
+                    particleCount: 150,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }
+            
+            // Add tada animation
+            resultContainer.classList.add('tada');
+            
+        } else if (percentage >= 80) {
             feedbackMessage.textContent = "Excellent! You have a great understanding.";
             feedbackMessage.style.color = "var(--success-color)";
         } else if (percentage >= 50) {
