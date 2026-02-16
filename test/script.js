@@ -124,12 +124,10 @@ function handlePrev() {
 }
 
 function updateUI() {
-    debugger
     // Button states
     prevBtn.disabled = currentQuestionIndex === 0;
 
     if (currentQuestionIndex === quizData.length - 1) {
-        debugger
         nextBtn.textContent = 'Finish';
         nextBtn.classList.add('btn-success');
     } else {
