@@ -17,15 +17,35 @@ const questionText = document.getElementById('question-text');
 const optionsContainer = document.getElementById('options-container');
 const progressBar = document.getElementById('progress-bar');
 const questionNumberDisplay = document.getElementById('question-number');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const restartBtn = document.getElementById('restart-btn');
+const currentScoreDisplay = document.getElementById('current-score');
 
 
 // Initialization
 function init() {
     startTimer();
     loadQuestion();
-    // setupEventListeners();
+    setupEventListeners();
 }
 
+function setupEventListeners() {
+    nextBtn.addEventListener('click', handleNext);
+    prevBtn.addEventListener('click', handlePrev);
+    restartBtn.addEventListener('click', startQuiz);
+
+    // key navigation for options
+    optionsContainer.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            const target = e.target;
+            if (target.classList.contains('option')) {
+                const index = parseInt(target.dataset.index);
+                selectOption(index);
+            }
+        }
+    })
+}
 
 function startTimer() {
     clearInterval(timerInterval);
@@ -84,6 +104,44 @@ function loadQuestion() {
     updateProgressBar()
 }
 
+function handleNext() {
+    if (currentQuestionIndex < quizData.length - 1) {
+        currentQuestionIndex++;
+        loadQuestion();
+    } else {
+        console.log('hi')
+        // endQuiz();
+    }
+    updateUI();
+}
+
+function handlePrev() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        loadQuestion();
+    }
+    updateUI();
+}
+
+function updateUI() {
+    debugger
+    // Button states
+    prevBtn.disabled = currentQuestionIndex === 0;
+
+    if (currentQuestionIndex === quizData.length - 1) {
+        debugger
+        nextBtn.textContent = 'Finish';
+        nextBtn.classList.add('btn-success');
+    } else {
+        nextBtn.textContent = 'Next';
+        nextBtn.classList.remove('btn-success');
+    }
+
+    // update live score (optional based on answered question so far)
+    const currentScore = calculateScore();
+    currentScoreDisplay.textContent = currentScore;
+}
+
 function updateProgressBar() {
     const progress = ((currentQuestionIndex + 1) / quizData.length) * 100;
     progressBar.style.width = `${progress}%`;
@@ -91,6 +149,16 @@ function updateProgressBar() {
 
 function updateQuestionNumber() {
     questionNumberDisplay.textContent = `Question ${currentQuestionIndex + 1}/${quizData.length}`
+}
+
+function calculateScore() {
+    let tempScore = 0;
+    userAnswers.forEach((answer, index) => {
+        if (answer !== null && answer === quizData[index].correctAnswer) {
+            tempScore++;
+        }
+    });
+    return tempScore;
 }
 
 init();
