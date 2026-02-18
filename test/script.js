@@ -10,6 +10,11 @@ const QUIZ_DURATION_SECONDS = 60 * 2; // 2 minutes
 let currentQuestionIndex = 0;
 let timerInterval;
 let timeLeft = QUIZ_DURATION_SECONDS;
+let userAnswers = new Array(quizData.length).fill(null);
+let score = 0;
+let timeInterval;
+let isQuizActive = false;
+
 
 // dom elements
 const timerDisplay = document.getElementById('timer');
@@ -21,6 +26,11 @@ const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 const restartBtn = document.getElementById('restart-btn');
 const currentScoreDisplay = document.getElementById('current-score');
+const quizContainer = document.getElementById('quiz-container');
+const resultContainer = document.getElementById('result-container');
+const finalScoreDisplay = document.getElementById('final-score');
+const totalScoreDisplay = document.getElementById('total-score');
+const feedBackMessage = document.getElementById('feedback-message');
 
 
 // Initialization
@@ -104,13 +114,19 @@ function loadQuestion() {
     updateProgressBar()
 }
 
+function selectOption() {
+    if(!isQuizActive) return;
+
+    
+
+}
+
 function handleNext() {
     if (currentQuestionIndex < quizData.length - 1) {
         currentQuestionIndex++;
         loadQuestion();
     } else {
-        console.log('hi')
-        // endQuiz();
+        endQuiz();
     }
     updateUI();
 }
@@ -158,5 +174,57 @@ function calculateScore() {
     });
     return tempScore;
 }
+
+function endQuiz(timeRanOut = false) {
+    isQuizActive = false;
+    clearInterval(timerInterval);
+
+    score = calculateScore();
+
+    quizContainer.classList.add('hidden');
+    resultContainer.classList.remove('hidden');
+
+    finalScoreDisplay.textContent = score;
+    totalScoreDisplay.textContent = quizData.length;
+
+    if (timeRanOut) {
+        feedBackMessage.textContent = "Time's up! Here is your result"
+    } else {
+        const percentage = (score / quizData.length) * 100;
+
+        // Remove prevoius tada class if any
+        resultContainer.classList.remove('tada');
+
+        if (score === quizData.length) {
+            feedBackMessage.textContent = "Perfect! You got all questions right!";
+            feedBackMessage.style.color = "var(--success-color)";
+
+
+            // Trigger confetti
+
+            if (typeof window.confett === 'function') {
+                window.confetti({
+                    particleCount: 150,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                })
+            }
+
+            // Add tada animation
+            resultContainer.classList.add('tada');
+        } else if (percentage >= 80) {
+            feedBackMessage.textContent = "Excellent! You have a great understanding.";
+            feedBackMessage.style.color = "var(--success-color)";
+        } else if (percentage >= 50) {
+            feedBackMessage.textContent = "Good job! But there's room for improvement.";
+            feedBackMessage.style.color = "orange";
+        } else {
+            feedBackMessage.textContent = "Keep practicing! You'll get better.";
+            feedBackMessage.style.color = "var(--error-color)";
+        }
+    }
+
+}
+
 
 init();
