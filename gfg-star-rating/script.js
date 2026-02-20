@@ -1,4 +1,4 @@
-let stars = document.getElementByClassName('star');
+let stars = document.getElementsByClassName('star');
 let output = document.getElementById('output');
 
 function gfg(n) {
@@ -10,9 +10,9 @@ function gfg(n) {
         else if (n == 3) cls = 'three';
         else if (n == 4) cls = 'four';
         else if (n == 5) cls = 'five';
-        stars[i].className = 'stars' + cls;
+        stars[i].className = 'star ' + cls;
     }
-    output.innerText = `Rating is ${n} / 5`;
+    output.innerText = `Rating is: ${n}/5`;
 }
 
 function remove() {
