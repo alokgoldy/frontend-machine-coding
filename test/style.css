@@ -1,4 +1,30 @@
-.make-red{
-    /* background-color: red; */
-    color: red;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 50vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #B0CE88;
+    font-family: "Poppins", sans-serif;
+}
+
+.card {
+    max-width: 35rem;
+    background-color: #ffffff;
+    margin: 0 1rem;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.star {
+    font-size: 12vh;
+    cursor: pointer;
 }
