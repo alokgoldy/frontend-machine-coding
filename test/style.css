@@ -28,3 +28,19 @@ body {
     font-size: 12vh;
     cursor: pointer;
 }
+
+.one {
+  color: rgb(255, 0, 0);
+}
+.two {
+  color: rgb(198, 92, 16);
+}
+.three {
+  color: rgb(147, 152, 10);
+}
+.four {
+  color: rgb(255, 255, 0);
+}
+.five {
+  color: rgb(24, 159, 14);
+}
