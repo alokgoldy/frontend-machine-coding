@@ -1,0 +1,84 @@
+:root {
+    --star-color: #ddd;
+    --star-hover-color: #ffd700;
+    --star-active-color: #ffa500;
+    --text-color: #333;
+    --bg-color: #f4f4f4;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.rating-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.star {
+    width: 2rem;
+    height: 2rem;
+    fill: var(--star-color);
+    cursor: pointer;
+    transition: fill 0.2s ease, transform 0.2s ease;
+}
+
+/* Hover effect for the star itself */
+.star:hover {
+    transform: scale(1.2);
+}
+
+/* Selected state */
+.star.active {
+    fill: var(--star-active-color);
+}
+
+/* Hover state logic:
+   When the user is hovering over the container, we want to show the potential selection.
+   We use a class on the container to override the .active state.
+*/
+.stars.is-hovering .star {
+    fill: var(--star-color); /* Reset all to grey when hovering container */
+}
+
+.stars.is-hovering .star.hovered {
+    fill: var(--star-hover-color); /* Highlight only hovered ones */
+}
+
+.rating-text {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: bold;
+    min-height: 1.5rem; /* Prevent layout shift */
+}
+
+/* Accessibility focus styles */
+.star:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+    border-radius: 50%;
+}
