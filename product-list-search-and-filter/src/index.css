@@ -3,13 +3,30 @@
   font-family: sans-serif;
 }
 
+.my-app {
+  padding: 20px;
+  font-family: sans-serif;
+}
+
 .product-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 16px;
 }
 
+.my-product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
 .product-card {
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.my-product-card {
   border: 1px solid #ddd;
   padding: 12px;
   border-radius: 6px;
