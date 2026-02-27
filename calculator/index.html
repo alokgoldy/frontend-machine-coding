@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+  <head>
     <style>
         body {
             display: flex;
@@ -48,78 +48,161 @@
             }
         }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <table id="calcu">
-        <tr>
-            <td colspan="3">
-                <input type="text" id="result">
-            </td>
-            <td>
-                <input type="button" value="c" onclick="clr()" />
-            </td>
-        </tr>
+      <tr>
+        <td colspan="3">
+          <input type="text" id="result">
+        </td>
+        <td>
+          <input
+            type="button"
+            value="c"
+            onclick="clr()"
+          >
+        </td>
+      </tr>
 
-        <tr>
-            <td>
-                <input type="button" value="1" onClick="dis('1')" onkeydown="myFunction(event)">
-            </td>
-            <td>
-                <input type="button" value="2" onClick="dis('2')" onkeydown="myFunction(event)">
-            </td>
-            <td>
-                <input type="button" value="3" onClick="dis('3')" onkeydown="myFunction(event)">
-            </td>
-            <td>
-                <input type="button" value="/" onClick="dis('/')" onkeydown="myFunction(event)">
-            </td>
-        </tr>
+      <tr>
+        <td>
+          <input
+            type="button"
+            value="1"
+            onClick="dis('1')"
+            onkeydown="myFunction(event)"
+          >
+        </td>
+        <td>
+          <input
+            type="button"
+            value="2"
+            onClick="dis('2')"
+            onkeydown="myFunction(event)"
+          >
+        </td>
+        <td>
+          <input
+            type="button"
+            value="3"
+            onClick="dis('3')"
+            onkeydown="myFunction(event)"
+          >
+        </td>
+        <td>
+          <input
+            type="button"
+            value="/"
+            onClick="dis('/')"
+            onkeydown="myFunction(event)"
+          >
+        </td>
+      </tr>
 
-        <tr>
-            <td>
-                <input type="button" value="4" onClick="dis('4')" onkeydown="myFunction(event)">
-            </td>
-            <td>
-                <input type="button" value="5" onClick="dis('5')" onkeydown="myFunction(event)">
-            </td>
-            <td>
-                <input type="button" value="6" onClick="dis('6')" onkeydown="myFunction(event)">
-            </td>
-            <td>
-                <input type="button" value="*" onClick="dis('*')" onkeydown="myFunction(event)">
-            </td>
-        </tr>
+      <tr>
+        <td>
+          <input
+            type="button"
+            value="4"
+            onClick="dis('4')"
+            onkeydown="myFunction(event)"
+          >
+        </td>
+        <td>
+          <input
+            type="button"
+            value="5"
+            onClick="dis('5')"
+            onkeydown="myFunction(event)"
+          >
+        </td>
+        <td>
+          <input
+            type="button"
+            value="6"
+            onClick="dis('6')"
+            onkeydown="myFunction(event)"
+          >
+        </td>
+        <td>
+          <input
+            type="button"
+            value="*"
+            onClick="dis('*')"
+            onkeydown="myFunction(event)"
+          >
+        </td>
+      </tr>
 
-        <tr>
-            <td>
-                <input type="button" value="7" onClick="dis('7')" onkeydown="myFunction(event)">
-            </td>
-            <td>
-                <input type="button" value="8" onClick="dis('8')" onkeydown="myFunction(event)">
-            </td>
-            <td>
-                <input type="button" value="9" onClick="dis('9')" onkeydown="myFunction(event)">
-            </td>
-            <td>
-                <input type="button" value="-" onClick="dis('-')" onkeydown="myFunction(event)">
-            </td>
-        </tr>
+      <tr>
+        <td>
+          <input
+            type="button"
+            value="7"
+            onClick="dis('7')"
+            onkeydown="myFunction(event)"
+          >
+        </td>
+        <td>
+          <input
+            type="button"
+            value="8"
+            onClick="dis('8')"
+            onkeydown="myFunction(event)"
+          >
+        </td>
+        <td>
+          <input
+            type="button"
+            value="9"
+            onClick="dis('9')"
+            onkeydown="myFunction(event)"
+          >
+        </td>
+        <td>
+          <input
+            type="button"
+            value="-"
+            onClick="dis('-')"
+            onkeydown="myFunction(event)"
+          >
+        </td>
+      </tr>
 
-        <tr>
-            <td>
-                <input type="button" value="0" onClick="dis('0')" onkeydown="myFunction(event)">
-            </td>
-            <td>
-                <input type="button" value="." onClick="dis('.')" onkeydown="myFunction(event)">
-            </td>
-            <td>
-                <input type="button" value="=" onClick="solve()">
-            </td>
-            <td>
-                <input type="button" value="+" onClick="dis('+')" onkeydown="myFunction(event)">
-            </td>
-        </tr>
+      <tr>
+        <td>
+          <input
+            type="button"
+            value="0"
+            onClick="dis('0')"
+            onkeydown="myFunction(event)"
+          >
+        </td>
+        <td>
+          <input
+            type="button"
+            value="."
+            onClick="dis('.')"
+            onkeydown="myFunction(event)"
+          >
+        </td>
+        <td>
+          <input
+            type="button"
+            value="="
+            onClick="solve()"
+          >
+        </td>
+        <td>
+          <input
+            type="button"
+            value="+"
+            onClick="dis('+')"
+            onkeydown="myFunction(event)"
+          >
+        </td>
+      </tr>
     </table>
     <script>
 
@@ -250,6 +333,6 @@
             document.getElementById("result").value = y;
         }
     </script>
-</body>
+  </body>
 
 </html>
