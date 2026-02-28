@@ -9,7 +9,7 @@ function solve() {
     const res = eval(val);
     resultBox.value = res;
 }
-
+// / comment
 function clr() {
     resultBox.value = '';
 }
