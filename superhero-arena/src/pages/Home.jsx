@@ -7,7 +7,7 @@ function Home() {
   const [heroes, setHeroes] = useState([])
 
   const handleSearch = async (query) => {
-    const results = searchHeroes(query)
+    const results = await searchHeroes(query)
     setHeroes(results || [])
   }
 
@@ -18,9 +18,9 @@ function Home() {
       <SearchBar onSearch={handleSearch} />
 
       <div className="heroes-grid">
-        {heroes.map((hero) => {
-          ;<HeroCard key={hero.id} hero={hero} />
-        })}
+        {heroes.map((hero) => (
+          <HeroCard key={hero.id} hero={hero} />
+        ))}
       </div>
     </div>
   )
