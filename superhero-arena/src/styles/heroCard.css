@@ -1,0 +1,23 @@
+.hero-card {
+  background: #1e293b;
+  border-radius: 10px;
+  padding: 15px;
+  transition: transform 0.2s;
+}
+
+.hero-card:hover {
+  transform: scale(1.05);
+}
+
+.hero-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.hero-card button {
+  margin-top: 10px;
+  padding: 8px;
+  border: none;
+  background: #3b82f6;
+  cursor: pointer;
+}
