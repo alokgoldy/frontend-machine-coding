@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.d-container {
+  width: 300px;
+  margin: 100px auto;
+}
+
+.d-search-bar {
+  position: relative;
+}
+
+.d-search-input {
+  width: 100%;
+  padding: 8px;
+}
+
+.d-suggestions {
+  position: absolute;
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #fff;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.d-suggestions-user {
+  padding: 8px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
