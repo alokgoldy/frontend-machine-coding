@@ -18,7 +18,7 @@ function DebouncedSearch() {
 
         document.addEventListener('mousedown', handleClickOutside);
 
-        return () => window.removeEventListener('mousedown');
+        return () => document.removeEventListener('mousedown');
     }, [])
 
     useEffect(() => {
