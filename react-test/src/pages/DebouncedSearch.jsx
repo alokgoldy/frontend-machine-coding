@@ -1,10 +1,25 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 function DebouncedSearch() {
     const [search,setSearch] = useState('');
     const [users, setUsers] = useState([]);
     const [suggetions, setSuggestions] = useState([]);
     const [selectedUser, setSelectedUser] = useState(null);
+    const [isSelected, setIsselected] = useState(false);
+
+    const wrapperRef = useRef(null);
+
+    useEffect(()=>{
+        const handleClickOutside = (e) => {
+            if(wrapperRef.current && !wrapperRef.current.contains(e.target)){
+                setSuggestions([]);
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => window.removeEventListener('mousedown');
+    }, [])
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
@@ -14,7 +29,7 @@ function DebouncedSearch() {
 
     useEffect(() =>{
         const timerId = setTimeout(()=> {
-            if(search){
+            if(search && !isSelected){
                 const filtered = users.filter((user) => {
                 return user.name.toLowerCase().includes(search.toLowerCase());
                 })
@@ -23,21 +38,28 @@ function DebouncedSearch() {
                 setSuggestions([]);
             }
         }, 500);
+        
         return () => clearTimeout(timerId);
-    }, [search, users])
+    }, [search, users, isSelected])
 
     const handleSelect = (user) => {
+        setSuggestions([]);
         setSelectedUser(user);
         setSearch(user.name);
-        setSuggestions([]);
+        setIsselected(true)
+    }
+
+    const handleChange = (e) => {
+        setSearch(e.target.value);
+        setIsselected(false);
     }
 
     return(
         <div className='d-container'>
-            <div className='d-search-bar'>
+            <div ref={wrapperRef} className='d-search-bar'>
                 <input
                     placeholder='Search users ...'
-                    onChange={(e)=> setSearch(e.target.value)}
+                    onChange={handleChange}
                     type='text'
                     className='d-search-input'
                     value={search}
