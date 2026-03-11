@@ -70,6 +70,17 @@ function myDebounce(fn, delay){
     }
 }
 
+function myDebounce2(fn, delay){
+    let mtimer;
+
+    return function(...args){
+        clearTimeout(mtimer);
+        mtimer = setTimeout(()=>{
+            fn.apply(this,args);
+        },delay);
+    }
+}
+
 const myDebouncedSearch = myDebounce(fetchUsers, 500);
 
 
