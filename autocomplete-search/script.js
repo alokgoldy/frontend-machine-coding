@@ -38,6 +38,10 @@ function renderSuggestions(){
     })
 }
 
+function rsuggestion(){
+    suggestions.innerHTML = '';
+}
+
 async function fetchUsers(query){
 
     if(!query){
