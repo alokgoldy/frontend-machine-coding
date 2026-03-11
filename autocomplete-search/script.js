@@ -45,7 +45,13 @@ function rsuggestion(){
         const div = document.createElement('div');
         div.classList.add('suggestion-item');
         div.innerText = user.name;
-        
+
+        div.addEventListener('click', ()=>{
+            input.value = user.name;
+            suggestionsBox.innerHTML = '';
+        })
+
+        suggestionsBox.appendChild(div);
     })
 }
 
