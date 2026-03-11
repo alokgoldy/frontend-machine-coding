@@ -40,6 +40,13 @@ function renderSuggestions(){
 
 function rsuggestion(){
     suggestions.innerHTML = '';
+
+    suggestions.forEach((user, index)=>{
+        const div = document.createElement('div');
+        div.classList.add('suggestion-item');
+        div.innerText = user.name;
+        
+    })
 }
 
 async function fetchUsers(query){
