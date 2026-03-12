@@ -42,27 +42,32 @@ export default function AutoComplete(){
     }
 
     const handleSelect = (name)=>{
-        setText(name)
+        setText(name);
+        setSuggestions([])
     }
 
     return(
-        <div style={{width: '300px', margin: '40px'}}>
-            <input
-                placeholder="Search users"
-                onChange={handleChange}
-                value={text}
-                style={{width: '100%', padding: '8px'}}
-            />
-            <div style={{border: "1px solid #ccc"}}>
-                {suggestions.map((user)=>(
-                    <div 
-                    key={user.id} 
-                    style={{padding: '8px', cursor:'pointer'}}
-                    onClick={() => handleSelect(user.name)}
-                    >
-                        {user.name}
-                    </div>
-                ))}
+        <div className="a-container">
+            <div className="a-search-bar">
+                <input
+                    placeholder="Search users"
+                    onChange={handleChange}
+                    value={text}
+                    className="a-search-input"
+                />
+                {suggestions.length > 0 && (
+                <div className="a-suggestions">
+                    {suggestions.map((user)=>(
+                        <div 
+                        key={user.id} 
+                        className="a-suggestions-user"
+                        onClick={() => handleSelect(user.name)}
+                        >
+                            {user.name}
+                        </div>
+                    ))}
+                </div>
+            )}
             </div>
         </div>
     )
