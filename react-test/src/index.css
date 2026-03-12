@@ -33,3 +33,34 @@
   cursor: pointer;
   border-bottom: 1px solid #eee;
 }
+
+.a-container {
+  padding: 20px;
+  width: 300px;
+}
+
+.a-search-bar {
+  position: relative;
+  width: 300px;
+}
+
+.a-search-input {
+  width: 100%;
+  padding: 8px;
+}
+
+.a-suggestions {
+  position: absolute;
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #fff;
+  /* max-height: 150px; */
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.a-suggestions-user {
+  padding: 8px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
