@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback, useMemo } from "react";
 
 function debounce(fn,delay){
     let timer;
@@ -17,7 +17,7 @@ export default function AutoComplete(){
     const [suggestions, setSuggestions] = useState([]);
 
 
-    async function searchUsers(query){
+    const searchUsers = useCallback(async (query) => {
 
         if(!query){
             setSuggestions([]);
@@ -32,11 +32,11 @@ export default function AutoComplete(){
         });
 
         setSuggestions(filtered);
-    }
+    }, []);
 
-    const debouncedSearch = debounce(searchUsers, 500);
+    const debouncedSearch = useMemo(() => debounce(searchUsers, 500), [searchUsers]);
 
-    const handlechnage = (e)=>{
+    const handleChange = (e)=>{
         setText(e.target.value);
         debouncedSearch(e.target.value);
     }
@@ -49,12 +49,12 @@ export default function AutoComplete(){
         <div style={{width: '300px', margin: '40px'}}>
             <input
                 placeholder="Search users"
-                onChange={handlechnage}
+                onChange={handleChange}
                 value={text}
                 style={{width: '100%', padding: '8px'}}
             />
             <div style={{border: "1px solid #ccc"}}>
-                {suggestions.map((user)=>{
+                {suggestions.map((user)=>(
                     <div 
                     key={user.id} 
                     style={{padding: '8px', cursor:'pointer'}}
@@ -62,7 +62,7 @@ export default function AutoComplete(){
                     >
                         {user.name}
                     </div>
-                })}
+                ))}
             </div>
         </div>
     )
