@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from "./pages/Home";
 import DebouncedSearch from './pages/DebouncedSearch';
+import AutoComplete from './pages/AutoComplete';
 import './App.css'
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/debouncedsearch" element={<DebouncedSearch />} />
+      <Route path='/autocomplete' element={<AutoComplete/>}/>
     </Routes>
   )
 }
