@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    padding: 20px;
+}
+
+.search-container{
+    width: 300px;
+    position: relative;
+}
+
+.suggestions{
+    position: absolute;
+    width: 100%;
+}
+
+.suggestion-item{
+    width: 100%;
+    padding: 10px;
+    background: wheat;
+    color: black;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+input {
+    width: 300px;
+    padding: 10px;
+}
