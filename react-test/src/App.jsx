@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom';
 import Home from "./pages/Home";
 import DebouncedSearch from './pages/DebouncedSearch';
 import AutoComplete from './pages/AutoComplete';
-import './App.css'
 
 function App() {
 
