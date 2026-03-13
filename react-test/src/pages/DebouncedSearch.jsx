@@ -26,7 +26,7 @@ function DebouncedSearch() {
         .then(res => res.json())
         .then(data => setUsers(data));
     },[])
-
+// fixed
     useEffect(() =>{
         const timerId = setTimeout(()=> {
             if(search && !isSelected){
