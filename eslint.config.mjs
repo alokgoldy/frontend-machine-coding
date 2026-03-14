@@ -2,8 +2,20 @@ import globals from "globals";
 import pluginJs from "@eslint/js";
 import html from "@html-eslint/eslint-plugin";
 import htmlParser from "@html-eslint/parser";
+import eslintConfigPrettier from "eslint-config-prettier";
 
 export default [
+    {
+        ignores: [
+            "**/dist/**",
+            "**/node_modules/**",
+            "superhero-arena/**",
+            "product-list-search-and-filter/**",
+            "react-test/**",
+            "tough-pagination/**",
+            "superHero/**"
+        ]
+    },
     {
         languageOptions: {
             globals: {
@@ -24,7 +36,8 @@ export default [
         },
         rules: {
             ...html.configs.recommended.rules,
-            "html/indent": ["error", 2],
+            "html/indent": "off",
         },
-    }
+    },
+    eslintConfigPrettier
 ];
