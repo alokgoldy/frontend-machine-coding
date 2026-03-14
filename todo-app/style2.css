@@ -1,0 +1,65 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial;
+    width: 400px;
+    margin: 50px auto;
+}
+.input-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 10px;
+}
+
+input {
+  width: 70%;
+  padding: 8px;
+  text-align: left;
+}
+
+
+button{
+    width: 80px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+li {
+  margin: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.li-button {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.li-button button {
+  width: 60px;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.task-text {
+    cursor: pointer;
+}
+
