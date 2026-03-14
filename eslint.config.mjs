@@ -37,6 +37,14 @@ export default [
         rules: {
             ...html.configs.recommended.rules,
             "html/indent": "off",
+            "html/require-closing-tags": "off",
+            "html/no-extra-spacing-attrs": "off",
+            "html/quotes": "off",
+            "html/closing-bracket-newline": "off",
+            "html/element-newline": "off",
+            "html/no-trailing-spaces": "off",
+            "html/max-len": "off",
+            "html/attrs-newline": "off",
         },
     },
     eslintConfigPrettier
