@@ -115,3 +115,50 @@
   font-size: 0.8rem;
   cursor: pointer;
 }
+
+.crousel-container {
+  position: relative;
+  width: 600px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.crousel-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.crousel-slide{
+  min-width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.crousel-slide.active {
+  opacity: 1;
+}
+
+img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.crousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
