@@ -5,6 +5,7 @@ import AutoComplete from './pages/AutoComplete';
 import TodoApp from './pages/TodoApp';
 import ImageCrousel from './pages/ImageCrousel';
 import InfiniteScroll from './pages/InfiniteScroll';
+import Pagination from './pages/Pagination';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/todo-app" element={<TodoApp />} />
       <Route path='/image-crousel' element={<ImageCrousel/>}/>
       <Route path='/infinite-scroll' element={<InfiniteScroll/>}/>
+      <Route path='/pagination' element={<Pagination/>}/>
     </Routes>
   );
 }
