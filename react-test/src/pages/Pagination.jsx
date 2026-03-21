@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Pagination.css";
 
 // eslint-disable-next-line react/prop-types
 const Pagination = ({ totalPages = 20 }) => {
@@ -43,29 +44,36 @@ const Pagination = ({ totalPages = 20 }) => {
   };
 
   return (
-    <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-      <button onClick={() => handleClick(currentPage - 1)}>
+    <div className="pagination-container">
+      <button
+        className="pagination-btn nav-btn"
+        onClick={() => handleClick(currentPage - 1)}
+        disabled={currentPage === 1}
+      >
         Prev
       </button>
 
       {getPages().map((page, index) =>
         page === "..." ? (
-          <span key={index}>...</span>
+          <span key={index} className="pagination-dots">
+            ...
+          </span>
         ) : (
           <button
             key={index}
             onClick={() => handleClick(page)}
-            style={{
-              fontWeight: currentPage === page ? "bold" : "normal",
-              background: currentPage === page ? "#ddd" : "white",
-            }}
+            className={`pagination-btn ${currentPage === page ? "active" : ""}`}
           >
             {page}
           </button>
         )
       )}
 
-      <button onClick={() => handleClick(currentPage + 1)}>
+      <button
+        className="pagination-btn nav-btn"
+        onClick={() => handleClick(currentPage + 1)}
+        disabled={currentPage === totalPages}
+      >
         Next
       </button>
     </div>
