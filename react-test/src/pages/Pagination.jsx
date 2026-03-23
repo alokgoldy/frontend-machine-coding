@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Pagination.css";
 
-// eslint-disable-next-line react/prop-types
 const Pagination = ({ totalPages = 20 }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
