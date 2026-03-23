@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, } from 'react';
 
 const Slides = ({ slides }) => {
     const [index, setIndex] = useState(0);
@@ -6,17 +6,17 @@ const Slides = ({ slides }) => {
     const isFirst = index === 0;
     const isLast = index === slides.length - 1;
 
-    const handleNext = useCallback(() => {
+    const handleNext = () => {
         if (!isLast) setIndex(prev => prev + 1);
-    }, [isLast])
+    }
 
-    const handlePrev = useCallback(() => {
+    const handlePrev = () => {
         if (!isFirst) setIndex(prev => prev - 1);
-    }, [isFirst])
+    }
 
-    const handleRestart = useCallback(() => {
+    const handleRestart = () => {
         setIndex(0);
-    }, []);
+    }
 
     const currentSlide = slides[index];
 
