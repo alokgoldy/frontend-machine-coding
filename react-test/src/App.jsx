@@ -6,6 +6,7 @@ import TodoApp from './pages/TodoApp';
 import ImageCrousel from './pages/ImageCrousel';
 import InfiniteScroll from './pages/InfiniteScroll';
 import Pagination from './pages/Pagination';
+import SlideShow from './pages/SlideShow';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path='/image-crousel' element={<ImageCrousel/>}/>
       <Route path='/infinite-scroll' element={<InfiniteScroll/>}/>
       <Route path='/pagination' element={<Pagination/>}/>
+      <Route path='/slideshow' element={<SlideShow/>}/>
     </Routes>
   );
 }
