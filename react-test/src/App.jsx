@@ -5,7 +5,7 @@ import AutoComplete from './pages/AutoComplete';
 import TodoApp from './pages/TodoApp';
 import ImageCrousel from './pages/ImageCrousel';
 import InfiniteScroll from './pages/InfiniteScroll';
-// import Pagination from './pages/Pagination';
+import Pagination from './pages/Pagination';
 import SlideShow from './pages/SlideShow';
 import ContactForm from './pages/ContactForm';
 
@@ -18,7 +18,7 @@ function App() {
       <Route path="/todo-app" element={<TodoApp />} />
       <Route path='/image-crousel' element={<ImageCrousel />} />
       <Route path='/infinite-scroll' element={<InfiniteScroll />} />
-      {/* <Route path='/pagination' element={<Pagination/>}/> */}
+      <Route path='/pagination' element={<Pagination/>}/>
       <Route path='/slideshow' element={<SlideShow />} />
       <Route path='/contact-form' element={<ContactForm />} />
     </Routes>
