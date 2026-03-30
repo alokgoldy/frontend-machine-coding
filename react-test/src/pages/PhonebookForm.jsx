@@ -56,6 +56,7 @@ function PhoneBookForm({ entries, setEntries }) {
       <div className="form-row">
         <label htmlFor={'userFirstName'}>First Name</label>
         <input
+          className='input-field'
           type='text'
           name='userFirstName'
           placeholder='Enter First Name'
@@ -63,8 +64,30 @@ function PhoneBookForm({ entries, setEntries }) {
           onChange={onChange}
         />
       </div>
+      <div className="form-row">
+        <label htmlFor={'userLastName'}>First Name</label>
+        <input
+          className='input-field'
+          type='text'
+          name='userLastName'
+          placeholder='Enter Last Name'
+          value={formState.userLastName}
+          onChange={onChange}
+        />
+      </div>
+      <div className="form-row">
+        <label htmlFor={'userPhone'}>Phone Number</label>
+        <input
+          className='input-field'
+          type='text'
+          name='userPhone'
+          placeholder='Enter Phone Number'
+          value={formState.userPhone}
+          onChange={onChange}
+        />
+      </div>
       <input
-        className="submitButton"
+        className="submit-btn"
         type="submit"
         value="Add User"
       />
@@ -75,7 +98,7 @@ function PhoneBookForm({ entries, setEntries }) {
 
 function InformationTable({ entries }) {
   return (
-    <table>
+    <table className='information-table'>
       <thead>
         <tr>
           <td>First Name</td>
