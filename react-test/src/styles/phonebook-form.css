@@ -1,37 +1,9 @@
-.informationTable {
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 720px;
-    margin: 0 auto;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-.informationTable thead th {
-    background-color: #f5f7fa;
-    color: #334155;
-    font-weight: 600;
-    text-align: left;
-}
-.informationTable th,
-.informationTable td {
-    border: 1px solid #e5e7eb;
-    padding: 12px 16px;
-    min-width: 160px;
-}
-.informationTable tbody tr:nth-child(even) {
-    background-color: #fafafa;
-}
-.informationTable tbody tr:hover {
-    background-color: #f1f5f9;
-}
-
 .form-container {
     padding: 24px;
+    background-color: #ffffff;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
-    max-width: 420px;
-    background-color: #ffffff;
+    max-width: 480px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
     margin: 0 auto;
 }
@@ -42,34 +14,23 @@
     gap: 12px;
     margin-bottom: 14px;
 }
+
 .form-row label {
-    width: 110px;
+    width: 210px;
     color: #334155;
     font-weight: 500;
 }
-.form-row .userFirstname,
-.form-row .userLastname,
-.form-row .userPhone {
+
+.form-row .input-field {
     flex: 1;
     width: auto;
     max-width: none;
 }
 
-.phonebook-wrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    padding: 24px;
-}
-
-.userFirstname,
-.userLastname,
-.userPhone {
+.input-field {
     display: block;
     width: 100%;
-    max-width: 420px;
+    min-width: 280px;
     margin-top: 6px;
     margin-bottom: 14px;
     padding: 10px 12px;
@@ -80,14 +41,12 @@
     background-color: #ffffff;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.userFirstname:focus,
-.userLastname:focus,
-.userPhone:focus {
+
+.input-field:focus {
     border-color: #3b82f6;
     box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
 }
 
-.submitButton,
 .submit-btn {
     display: inline-block;
     margin-top: 10px;
@@ -101,15 +60,15 @@
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.05s ease;
 }
-.submitButton:hover,
+
 .submit-btn:hover {
     background-color: #0ea5e9;
 }
-.submitButton:active,
+
 .submit-btn:active {
     transform: translateY(1px);
 }
-.submitButton:disabled,
+
 .submit-btn:disabled {
     background-color: #9ca3af;
     cursor: not-allowed;
@@ -118,4 +77,37 @@
 table {
     border-collapse: collapse;
     width: 100%;
+}
+
+.information-table{
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 720px;
+    margin: 30px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.information-table thead th {
+    background-color: #f5f7fa;
+    color: #334155;
+    font-weight: 600;
+    text-align: center;
+}
+
+.information-table th,
+.information-table td {
+    border: 1px solid #e5e7eb;
+    padding: 12px 16px;
+    min-width: 160px;
+}
+
+.information-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.information-table  tbody tr:hover {
+    background-color: #f1f5f9;
+    cursor: pointer;
 }
