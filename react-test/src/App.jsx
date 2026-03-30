@@ -9,6 +9,7 @@ import Pagination from './pages/Pagination';
 import SlideShow from './pages/SlideShow';
 import ContactForm from './pages/ContactForm';
 import LetterTiles from './pages/LetterTiles';
+import PhonebookForm from './pages/PhonebookForm';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path='/slideshow' element={<SlideShow />} />
       <Route path='/contact-form' element={<ContactForm />} />
       <Route path='/letter-tiles' element={<LetterTiles />} />
+      <Route path='/phonebook-form' element={<PhonebookForm />} />
     </Routes>
   );
 }
