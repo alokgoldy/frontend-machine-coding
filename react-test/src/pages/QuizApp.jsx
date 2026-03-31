@@ -1,127 +1,108 @@
-import React, { useState, useMemo } from "react"
+import { useState, useMemo } from 'react';
+import '../styles/quiz-app.css'
 
-const style = {
-  container: {
-    padding: "20px",
-    border: "1px solid #E0E0E0",
-    borderRadius: "15px",
-    width: "max-content",
-    marginBottom: "40px",
-  },
-  question: {
-    fontWeight: "bold",
-    marginBottom: "10px",
-  },
-  options: {
-    marginBottom: "5px",
-  },
-  button: {
-    marginTop: "10px",
-    padding: "10px 15px",
-    border: "none",
-    backgroundColor: "#007BFF",
-    color: "#FFF",
-    fontSize: "14px",
-    borderRadius: "5px",
-    cursor: "pointer",
-  },
-  feedback: {
-    marginTop: "10px",
-    fontSize: "14px",
-  },
-}
+function QuizOption({ option, answer, setAnswer }) {
 
-const QuizOption = ({ option, index, answer, setAnswer }) => {
   const onChange = ({ target: { value } }) => setAnswer(value)
   return (
-    <>
+    <label>
       <input
-        type="radio"
-        onChange={onChange}
+        type='radio'
+        value={option}
         checked={option === answer}
         name="answers"
-        value={option}
-        id={`option${index}`}
+        onChange={onChange}
       />
-      <label htmlFor={option}>{option}</label>
-    </>
+      {option}
+    </label>
   )
 }
 
 function QuizApp() {
-  // do not modify the questions or answers below
-  const questions = useMemo(
-    () => [
-      {
-        question: "What is the capital of France?",
-        options: ["London", "Paris", "Berlin", "Madrid"],
-        correct: "Paris",
-      },
-      {
-        question: "What is the capital of Germany?",
-        options: ["Berlin", "Munich", "Frankfurt", "Hamburg"],
-        correct: "Berlin",
-      },
-    ],
-    []
-  )
 
-  const questionsTotal = useMemo(() => questions.length, [questions])
+  const questions = useMemo(() => [{
+    question: "What is the capital of France?",
+    options: ["London", "Paris", "Berlin", "Madrid"],
+    correct: "Paris",
+  },
+  {
+    question: "What is the capital of Germany?",
+    options: ["Berlin", "Munich", "Frankfurt", "Hamburg"],
+    correct: "Berlin",
+  }], []);
 
-  const [questionsIndex, setQuestionsIndex] = useState(0)
-  const [score, setScore] = useState(0)
+  const questionsTotal = useMemo(() => questions.length, [questions]);
+
+  const [questionIndex, setQuestionIndex] = useState(0);
+  const [score, setScore] = useState(null);
   const [feedback, setFeedback] = useState(null)
-  const [answer, setAnswer] = useState(null)
-  const [completedQuiz, setCompletedQuiz] = useState(false)
+  const [answer, setAnswer] = useState(null);
+  const [completedQuiz, setCompletedQuiz] = useState(false);
+
 
   const submit = () => {
-    if (answer === questions[questionsIndex].correct) {
-      setScore(score + 1)
+    if (!answer) return;
+
+    if (answer === questions[questionIndex].correct) {
+      setScore(prev => prev + 1);
       setFeedback("Correct!")
     } else {
       setFeedback("Incorrect!")
     }
 
-    if (questionsIndex === questionsTotal - 1) {
-      setCompletedQuiz(true)
+    if (questionIndex === questionsTotal - 1) {
+      setCompletedQuiz(true);
     } else {
-      setQuestionsIndex(questionsIndex + 1)
-      setAnswer(null)
+      setAnswer(null);
+      setQuestionIndex(prev => prev + 1);
     }
+  }
+  const restart = () => {
+    setQuestionIndex(0)
+    setScore(0)
+    setFeedback(null)
+    setAnswer(null)
+    setCompletedQuiz(false)
   }
 
   return (
-    <div style={style.container}>
-      <div id="question" style={style.question}>
-        {`${questions[questionsIndex].question}`}
+    <section className='quiz-page'>
+      <div className='quiz-container'>
+        <div id='question' className='quiz-question'>
+          {`${questions[questionIndex].question}`}
+        </div>
+        <div className='quiz-options'>
+          {questions[questionIndex].options.map((option, index) => (
+            <QuizOption
+              key={`option-${index}`}
+              option={option}
+              answer={answer}
+              setAnswer={setAnswer}
+            />
+          ))}
+        </div>
+        <button
+          disabled={completedQuiz || !answer}
+          className="quiz-button"
+          id="submitBtn"
+          onClick={submit}
+        >
+          Submit
+        </button>
+        <div id='feedBack' className="quiz-feedback">
+          {feedback && !completedQuiz && feedback}
+        </div>
+        <div id='score' className='quiz-score'>
+          {completedQuiz &&
+            `Quiz complete! You scored ${score} out of ${questions.length}!`}
+        </div>
+        {completedQuiz && (
+          <button className="quiz-button" onClick={restart}>
+            Restart
+          </button>
+        )}
       </div>
-      <div style={style.options}>
-        {questions[questionsIndex].options.map((option, index) => (
-          <QuizOption
-            key={`option-${index}`}
-            option={option}
-            index={index}
-            answer={answer}
-            setAnswer={setAnswer}
-          />
-        ))}
-      </div>
-      <button
-        disabled={completedQuiz}
-        style={style.button}
-        id="submitBtn"
-        onClick={submit}
-      >
-        Submit
-      </button>
-      <div id="feedback" style={style.feedback}>
-        {questionsIndex !== 0 && !completedQuiz && `${feedback}`}
-      </div>
-      <div id="score" style={style.feedback}>
-        {completedQuiz &&
-          `Quiz complete! You scored ${score} out of ${questions.length}!`}
-      </div>
-    </div>
+    </section>
   )
 }
 
