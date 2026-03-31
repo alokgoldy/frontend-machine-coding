@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const rowStyle = {
   display: "flex",
@@ -94,11 +94,28 @@ function Board() {
     setWinner('None');
   }
 
+  const checkWinner = (newBoard) => {
+
+    for (let i = 0; i < matches.length; i++) {
+      const [a, b, c] = matches[i];
+
+      if (newBoard[a] === player && newBoard[b] === player && newBoard[c] === player) {
+        return true
+      }
+    }
+    return false;
+  }
   const onClick = (index) => {
     const newBoard = [...board];
     newBoard[index] = player;
     setBoard(newBoard);
-    setPlayer(player === "X" ? "O" : "X");
+
+    if (checkWinner(newBoard)) {
+      setWinner(player);
+    } else {
+      setPlayer(player === "X" ? "O" : "X");
+    }
+
   }
 
   return (
