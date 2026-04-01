@@ -1,71 +1,15 @@
 import { useState } from 'react';
-
-const rowStyle = {
-  display: "flex",
-}
-
-const instructionsStyle = {
-  marginTop: "5px",
-  marginBottom: "5px",
-  fontWeight: "bold",
-  fontSize: "16px",
-}
-
-const containerStyle = {
-  display: "flex",
-  alignItems: "center",
-  flexDirection: "column",
-}
-
-const buttonStyle = {
-  marginTop: "15px",
-  marginBottom: "16px",
-  width: "80px",
-  height: "40px",
-  backgroundColor: "#8acaca",
-  color: "white",
-  fontSize: "16px",
-}
-
-const boardStyle = {
-  backgroundColor: "#eee",
-  width: "208px",
-  alignItems: "center",
-  justifyContent: "center",
-  display: "flex",
-  flexDirection: "column",
-  border: "3px #eee solid",
-}
-
-const squareStyle = {
-  width: "60px",
-  height: "60px",
-  backgroundColor: "#ddd",
-  margin: "4px",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  fontSize: "20px",
-  color: "white",
-}
-
-const disabledSquareStyle = {
-  ...squareStyle,
-  cursor: "not-allowed",
-}
-
+import '../styles/tic-tac-toe.css';
 
 function Square({ value, onClick, winner }) {
+  const isDisabled = value !== null || winner !== "None"
+
   return (
     <button
       className='square'
       onClick={() => onClick(value)}
-      style={
-        value !== null || winner !== "None"
-          ? disabledSquareStyle
-          : squareStyle
-      }
-      disabled={value !== null || winner !== "None"}
+      disabled={isDisabled}
+      data-disabled={isDisabled}
     >
       {value}
     </button>
@@ -119,18 +63,18 @@ function Board() {
   }
 
   return (
-    <div style={containerStyle} className='game-board'>
-      <div id={'status-area'} className="status" style={instructionsStyle}>
+    <div className='game-board'>
+      <div id={'status-area'} className="status game-status">
         Next player: <span>{player === "X" ? "O" : "X"}</span>
       </div>
-      <div id="winnerArea" className="winner" style={instructionsStyle}>
+      <div id="winnerArea" className="winner game-status">
         Winner: <span>{winner}</span>
       </div>
-      <button style={buttonStyle} onClick={onReset}>
+      <button className="game-reset-button" onClick={onReset}>
         Reset
       </button>
-      <div style={boardStyle}>
-        <div className="board-row" style={rowStyle}>
+      <div className="board-grid">
+        <div className="board-row">
           <Square
             value={board[0]}
             onClick={() => onClick(0)}
@@ -147,7 +91,7 @@ function Board() {
             winner={winner}
           />
         </div>
-        <div className="board-row" style={rowStyle}>
+        <div className="board-row">
           <Square
             value={board[3]}
             onClick={() => onClick(3)}
@@ -164,7 +108,7 @@ function Board() {
             winner={winner}
           />
         </div>
-        <div className="board-row" style={rowStyle}>
+        <div className="board-row">
           <Square
             value={board[6]}
             onClick={() => onClick(6)}
