@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/tic-tac-toe.css';
+// import '../styles/tic-tac-toe.css';
 
 function Square({ value, onClick, winner }) {
   const isDisabled = value !== null || winner !== "None"
