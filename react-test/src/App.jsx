@@ -12,6 +12,7 @@ import LetterTiles from './pages/LetterTiles';
 import PhonebookForm from './pages/PhonebookForm';
 import QuizApp from './pages/QuizApp';
 import TicTacToe from './pages/TicTacToe';
+import Test from './pages/Test';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Route path='/phonebook-form' element={<PhonebookForm />} />
       <Route path='/quiz-app' element={<QuizApp />} />
       <Route path='/tic-tac-toe' element={<TicTacToe />} />
+      <Route path='/test' element={<Test />} />
     </Routes>
   );
 }
