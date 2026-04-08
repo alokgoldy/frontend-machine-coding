@@ -30,7 +30,7 @@ function App() {
       <Route path='/phonebook-form' element={<PhonebookForm />} />
       <Route path='/quiz-app' element={<QuizApp />} />
       <Route path='/tic-tac-toe' element={<TicTacToe />} />
-      <Route path='/test' element={<Test />} />
+      {/* <Route path='/test' element={<Test />} /> */}
     </Routes>
   );
 }
