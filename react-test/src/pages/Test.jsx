@@ -32,12 +32,32 @@ function Board() {
     [6, 4, 2]
   ]
 
-  const onReset = () => {
+  const checkWinner = (newBoard) => {
 
+    for (let i = 0; i < matches.length; i++) {
+      const [a, b, c] = matches[i];
+
+      if (newBoard[a] === player && newBoard[b] === player && newBoard[c] === player) {
+        return true
+      }
+    }
+    return false
+  }
+  const onReset = () => {
+    setBoard(() => Array(9).fill(null));
+    setPlayer('X');
+    setWinner('None');
   }
 
-  const onClick = () => {
-
+  const onClick = (index) => {
+    const newBoard = [...board];
+    newBoard[index] = player;
+    setBoard(newBoard);
+    if (checkWinner(newBoard)) {
+      setWinner(player);
+    } else {
+      setPlayer(player === 'X' ? 'O' : 'X');
+    }
   }
 
   return (<div className="game-board">
