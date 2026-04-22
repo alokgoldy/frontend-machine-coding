@@ -1,54 +1,7 @@
 .game {
   min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   padding: 24px;
-}
-
-.game-board {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.game-reset-btn {
-  margin-top: 15px;
-  margin-bottom: 16px;
-  width: 80px;
-  height: 40px;
-  background-color: #8acaca;
-  color: white;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.board-grid{
-  background-color: #eee;
-  width: 208px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  border: 3px #eee solid;
-}
-
-.board-row {
-  display: flex;
-}
-
-.square {
-  margin: 4px;
-  width: 60px;
-  height: 60px;
-  background-color: #ddd;
-  font-size: 20px;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  cursor: pointer;
 }
