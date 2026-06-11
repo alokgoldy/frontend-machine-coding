@@ -1,59 +1,47 @@
-const loader = document.getElementById('loader');
-const list = document.getElementById('list');
+const input = document.getElementById('searchInput');
+const suggestionsBox = document.getElementById('suggestions');
 
-let page = 1;
-let isLoading = false;
+let suggestions = [];
 
-function fakeApi(page) {
-    return new Promise(resolve => {
-        let data
-        setTimeout(() => {
-            data = Array.from({ length: 10 }, (_, idx) => {
-                return `This is data ${(page - 1) * 10 + idx + 1}`;
-            })
-            resolve(data);
-        }, 1000)
 
+function showSuggestions() {
+  suggestionsBox.innerHTML = '';
+
+  suggestions.forEach((user, index) => {
+
+    const div = document.createElement('div');
+    div.classList.add('suggestion-item');
+    div.innerText = user.name;
+
+    div.addEventListener('click', ()=>{
+      input.value = user.name;
+      suggestionsBox.innerHTML = ''
     })
+    suggestionsBox.appendChild(div);
+  })
 }
 
-async function loadMore() {
-    if (isLoading) return;
-
-    isLoading = true;
-    loader.style.display = 'block';
-
-    try {
-
-        let data = await fakeApi(page);
-        let continueLoading = true;
-        while (continueLoading) {
-            data = await fakeApi(page);
-            data.forEach(item => {
-                const div = document.createElement('div');
-                div.textContent = item;
-                div.classList.add('item');
-                list.appendChild(div);
-            })
-            page++;
-            if (document.body.offsetHeight > window.innerHeight) {
-                continueLoading = false;
-            }
-        }
-
-    } catch (err) {
-        console.log(err);
-    } finally {
-        isLoading = false;
-        loader.style.display = 'none';
-    }
+async function searchUser(query) {
+  const res = await fetch('https://jsonplaceholder.typicode.com/users');
+  const data = await res.json();
+  console.log('fetched data', data);
+  suggestions = (data.filter(i => i.name.toLowerCase().includes(query.toLowerCase())));
+  console.log(suggestions);
+  showSuggestions();
 
 }
 
-window.addEventListener('scroll', () => {
-    if (window.innerHeight + window.scrollY > document.body.offsetHeight - 10) {
-        loadMore()
-    }
+function debounce(fn, delay) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      fn.apply(this, args)
+    }, delay);
+  }
+
+}
+const delayFn = debounce(searchUser, 500);
+input.addEventListener('input', (e) => {
+  delayFn(e.target.value);
 })
-
-loadMore()

@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-      infinite scroll
-    </title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div id="list"></div>
-    <div id="loader">Loading...</div>
-    <script src="script.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    Autocomplete
+  </title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="search-container">
+    <input type="text" placeholder="search users..." id="searchInput" oninput="console.log(event.target.value)"/>
+    <div id="suggestions" class="suggestions"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
 </html>
