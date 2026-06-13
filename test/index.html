@@ -5,15 +5,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>
-    Autocomplete
+    gfg star rating
   </title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <div class="search-container">
-    <input type="text" placeholder="search users..." id="searchInput" oninput="console.log(event.target.value)"/>
-    <div id="suggestions" class="suggestions"></div>
+  <div class="card">
+    <h2>GFG Star Rating</h2>
+    <div class="stars">
+      <span onclick="gfg(1)" class="star">*</span>
+      <span onclick="gfg(2)" class="star">*</span>
+      <span onclick="gfg(3)" class="star">*</span>
+      <span onclick="gfg(4)" class="star">*</span>
+      <span onclick="gfg(5)" class="star">*</span>
+    </div>
+    <div id="scoreElement">Score- 0/5</div>
   </div>
   <script src="script.js"></script>
 </body>
