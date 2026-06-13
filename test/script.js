@@ -1,47 +1,30 @@
-const input = document.getElementById('searchInput');
-const suggestionsBox = document.getElementById('suggestions');
+const scoreElement = document.getElementById('scoreElement');
+const stars = document.getElementsByClassName('star');
+function gfg(n) {
 
-let suggestions = [];
+  let cls = '';
 
-
-function showSuggestions() {
-  suggestionsBox.innerHTML = '';
-
-  suggestions.forEach((user, index) => {
-
-    const div = document.createElement('div');
-    div.classList.add('suggestion-item');
-    div.innerText = user.name;
-
-    div.addEventListener('click', ()=>{
-      input.value = user.name;
-      suggestionsBox.innerHTML = ''
-    })
-    suggestionsBox.appendChild(div);
-  })
-}
-
-async function searchUser(query) {
-  const res = await fetch('https://jsonplaceholder.typicode.com/users');
-  const data = await res.json();
-  console.log('fetched data', data);
-  suggestions = (data.filter(i => i.name.toLowerCase().includes(query.toLowerCase())));
-  console.log(suggestions);
-  showSuggestions();
-
-}
-
-function debounce(fn, delay) {
-  let timer;
-  return function (...args) {
-    clearTimeout(timer)
-    timer = setTimeout(() => {
-      fn.apply(this, args)
-    }, delay);
+  remove()
+  for (let i = 0; i < n; i++) {
+    if (n === 1) {
+      cls = 'one';
+    } else if (n === 2) {
+      cls = 'two';
+    } else if (n === 3) {
+      cls = 'three';
+    } else if (n === 4) {
+      cls = 'four';
+    } else if (n === 5) {
+      cls = 'five';
+    }
+    stars[i].className = 'star ' + cls;
   }
+  scoreElement.innerText = `Score ${n}/5`
 
 }
-const delayFn = debounce(searchUser, 500);
-input.addEventListener('input', (e) => {
-  delayFn(e.target.value);
-})
+
+function remove() {
+  for (let i = 0; i < 5; i++) {
+    stars[i].className = 'star';
+  }
+}
