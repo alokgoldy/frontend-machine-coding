@@ -1,0 +1,247 @@
+.nested-products-page {
+  min-height: 100vh;
+  padding: 32px 20px;
+  background: linear-gradient(180deg, #f3f7ff 0%, #eef2f7 100%);
+  color: #14213d;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.nested-products-shell {
+  width: min(1400px, 100%);
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  padding: 28px;
+}
+
+.nested-products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.nested-products-header h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.nested-products-eyebrow {
+  color: #335caa;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+
+.nested-products-copy {
+  max-width: 720px;
+  color: #546179;
+  line-height: 1.5;
+}
+
+.nested-products-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.nested-products-link,
+.nested-products-reset {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nested-products-link {
+  background-color: #e8eefc;
+  color: #214799;
+}
+
+.nested-products-reset {
+  background-color: #14213d;
+  color: #ffffff;
+}
+
+.nested-products-toolbar {
+  display: grid;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.nested-products-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.nested-products-stat-card {
+  background-color: #f8fafc;
+  border: 1px solid #e1e8f0;
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nested-products-stat-card span {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.nested-products-stat-card strong {
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+.nested-products-filters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.nested-products-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nested-products-filter label {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.nested-products-filter select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #14213d;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.nested-products-filter select:focus {
+  border-color: #335caa;
+  box-shadow: 0 0 0 3px rgba(51, 92, 170, 0.12);
+}
+
+.nested-products-grid-wrap {
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  overflow: auto;
+  max-height: 980px;
+}
+
+.nested-products-grid-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background-color: #f8fafc;
+  color: #546179;
+  font-size: 0.92rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.nested-products-grid {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.nested-products-grid thead {
+  background-color: #14213d;
+  color: #ffffff;
+}
+
+.nested-products-grid thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #14213d;
+}
+
+.nested-products-grid th,
+.nested-products-grid td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: top;
+}
+
+.nested-products-grid tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.nested-products-grid tbody tr:hover {
+  background-color: #eef4ff;
+}
+
+.nested-products-name-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nested-products-name-cell span {
+  color: #64748b;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 1100px) {
+  .nested-products-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .nested-products-header,
+  .nested-products-stats {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .nested-products-actions {
+    justify-content: flex-start;
+  }
+
+  .nested-products-grid-wrap {
+    overflow-x: auto;
+  }
+
+  .nested-products-grid {
+    min-width: 920px;
+  }
+}
+
+@media (max-width: 640px) {
+  .nested-products-page {
+    padding: 16px;
+  }
+
+  .nested-products-shell {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .nested-products-filters,
+  .nested-products-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .nested-products-grid-meta {
+    flex-direction: column;
+  }
+
+  .nested-products-header h1 {
+    font-size: 1.6rem;
+  }
+}

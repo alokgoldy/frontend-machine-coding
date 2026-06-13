@@ -1,42 +1,46 @@
-* {
-    box-sizing: border-box;
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial;
-    padding: 40px;
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.search-container {
-    width: 300px;
-    position: relative;
+.card{
+  margin: 20px;
+  padding: 20px;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
+.stars {
+margin-top: 10px;
 }
 
-.suggestions {
-    position: absolute;
-    width: 100%;
-    border: 1px solid #ddd;
-    border-top: none;
-    max-height: 200px;
-    overflow-y: auto;
-    background: wheat;
+.star {
+  cursor: pointer;
+  font-size: 50px;
 }
 
-.suggestion-item {
-    padding: 10px;
-    cursor: pointer;
+.one {
+  color: rgb(255, 0, 0);
 }
-
-.suggestion-item:hover {
-     background:#f2f2f2;
+.two {
+  color: rgb(255, 106, 0);
 }
-
-.active{
-    background:#e6e6e6;
+.three {
+  color: rgb(251, 255, 120);
+}
+.four {
+  color: rgb(255, 255, 0);
+}
+.five {
+  color: rgb(24, 159, 14);
 }
