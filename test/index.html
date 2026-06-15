@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Captch Check</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="captcha-card">
+      <header>
+        <h2>Security Check</h2>
+        <p>Please enter the text given below</p>
+      </header>
+
+      <form id="captchaForm">
+        <div class="input-group">
+          <input type="text" id="captchaInput" placeholder="Enter Captcha Text" autocomplete="off" required />
+          <span class="focus-border"></span>
+        </div>
+        <button type="submit" id="checkBtn" class="submit-btn">
+          Verify
+        </button>
+      </form>
+      <div id="statusMessage" class="status-message"></div>
+    </div>
+  </div>
+</body>
+
+</html>
