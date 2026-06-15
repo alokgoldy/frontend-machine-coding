@@ -70,7 +70,7 @@ class CaptchaGenerator {
     // Clear canvas
     clearCanvas() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.ctx.fillStyle = '#f8f9fa';
+        this.ctx.fillStyle = '#0a0c0fff';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
