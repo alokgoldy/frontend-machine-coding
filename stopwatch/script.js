@@ -17,6 +17,29 @@ stopBtn.addEventListener('click', function () {
     timerId = null;
 });
 
+// no - m
+// 2 - fr
+// mg/f-o/d3/wh/cr/ps-h/
+// 10k
+// 2 dsa
+// 1-fr
+// 1 vid/t
+// w- 8
+// 8-30-walk
+// 30-9 r/bf oats/banana 2
+// 9-1 office
+// 1-2 -lunch(c-v/f/s)
+// 2-5-off
+// 5-6-snk
+// 6-7-chill/relax
+// 7-9 fr
+// 9-19:30 dinnr
+// 9:30-11-dsa
+// 11-12-j-a
+// 12-1-ex
+// 1-2-trd
+
+
 resetBtn.addEventListener('click', function () {
     clearInterval(timerId);
     timerId = null;
