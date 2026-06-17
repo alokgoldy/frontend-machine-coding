@@ -17,6 +17,13 @@
         <p>Please enter the text given below</p>
       </header>
 
+      <div class="captcha-display">
+        <canvas id="captchaCanvas" width="280" height="80"></canvas>
+        <button id="refreshBtn" class="icon-btn" aria-label="Refresh Captcha">
+          <i class="fas fa-sync-alt"></i>
+        </button>
+      </div>
+
       <form id="captchaForm">
         <div class="input-group">
           <input type="text" id="captchaInput" placeholder="Enter Captcha Text" autocomplete="off" required />
@@ -29,6 +36,7 @@
       <div id="statusMessage" class="status-message"></div>
     </div>
   </div>
+  <script src="script.js"></script>
 </body>
 
 </html>
