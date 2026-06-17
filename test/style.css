@@ -58,6 +58,52 @@ header p {
   margin-bottom: 25px;
 }
 
+.captcha-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 25px;
+  background: var(--input-bg);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e1e1e1;
+  overflow: hidden;
+}
+
+canvas {
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  max-width: 100%;
+  height: auto;
+  flex: 1;
+  object-fit: contain;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  /* Prevent button from being crushed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.icon-btn:hover {
+  background-color: rgba(74, 144, 226, 0.1);
+  transform: rotate(180deg);
+}
+
 .input-group {
   position: relative;
   margin-bottom: 20px;
