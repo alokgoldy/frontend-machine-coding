@@ -1,0 +1,29 @@
+interface Props {
+  label: string,
+  name: string,
+  value: string,
+  error?: string,
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
+
+export const InputField = ({
+  label,
+  name,
+  value,
+  error,
+  onChange
+}: Props) => {
+  return (
+    <div className="mb-4">
+      <label className="block font-semibold mb-1">{label}</label>
+      <input
+        name={name}
+        value={value}
+        onChange={onChange}
+        className={`w-full border p-2 rounded ${error ? "border-red-500" : "border-gray-300"
+          }`}
+      />
+      {error && <p className="text-red-500 text-sm">{error}</p>}
+    </div>
+  )
+}
