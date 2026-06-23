@@ -1,42 +1,53 @@
-import { useState } from 'react';
-import '../styles/test.css';
+import { useState, useEffect } from 'react';
 
-function Square() {
-  return (<div>
 
-  </div>)
-}
+const Test = () => {
+  const [value, setValue] = useState('');
+  const [list, setList] = useState([]);
+  const [users, setUsers] = useState([]);
 
-function Board() {
-  const [player, setPlayer] = useState('X');
-  const [winner, setWinner] = useState('None');
-  const [board, setBoard] = useState(() => Array(9).fill(null));
-
-  const onClick = (index) => {
-    const newBoard = [...board];
-    newBoard[index] = player;
+  const handleChange = (e) => {
+    debugger
+    const searchValue = e.target.value
+    setValue(searchValue);
   }
-  return (
-    <div className='game-board'>
-      <div className='board-grid'>
-        <div className='game-row'>
-          <Square
-            value={board[0]}
-            onClick={() => onClick(1)}
-            winner={winner}
-          />
-        </div>
-      </div>
-    </div>
-  )
-}
 
-function Test() {
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      const filtered = users.filter((user) => {
+        return user.name.toLowerCase().includes(value.toLowerCase());
+      });
+      console.log('inspect@1', {
+        filtered
+      })
+      setList(filtered);
+    }, 1000)
+
+    return () => clearTimeout(timerId);
+
+  }, [value, users])
+
   return (
-    <div className='game'>
-      <div className='game-board'>
-        <Board />
+    <div className='test-debounce-container'>
+      <div className='test-debounce-input-container'>
+        <input
+          name='name'
+          label='Enter name to search'
+          onChange={handleChange}
+          type='text'
+          value={value}
+          className='test-debounce-input'
+        />
       </div>
+      <ul>
+        {list?.map(item => (<li key={item.id}>{item.name}</li>))}
+      </ul>
     </div>
   )
 }

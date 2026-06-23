@@ -166,3 +166,21 @@
 .next {
   right: 10px;
 } */
+
+.test-debounce-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+.test-debounce-input {
+  border: 1px solid black;
+  font-size: 1.2rem;
+}
+
+.test-debounce-input-container {
+  margin-top: -400px;
+}
