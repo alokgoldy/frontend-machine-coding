@@ -63,6 +63,8 @@
   z-index: 10;
 }
 
+
+
 .a-suggestions-user {
   padding: 8px;
   cursor: pointer;
@@ -183,4 +185,24 @@
 
 .test-debounce-input-container {
   margin-top: -400px;
+}
+
+.ac-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh
+}
+
+.ac-input-container {
+  flex-direction: column;
+  display: flex;
+  margin-top: -400px;
+  justify-content: center;
+  align-items: center;
+}
+
+.ac-input-container input {
+  border: 2px solid salmon;
 }
