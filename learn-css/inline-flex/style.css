@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background-color: #f9f9f9;
+}
+
+h1 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.container {
+  border: 2px dashed #999;
+  padding: 15px;
+  margin-bottom: 30px;
+  background-color: #fff;
+}
+
+.child {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  margin: 5px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.inline-flex-c {
+  display: inline-flex;
+  background-color: #e74c3c;
+  padding: 5px;
+}
+
+.flex-c {
+  display: flex;
+  background-color: #2ecc71;
+  padding: 5px;
+}
