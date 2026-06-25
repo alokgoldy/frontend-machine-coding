@@ -36,6 +36,7 @@ export default [
         },
         rules: {
             ...html.configs.recommended.rules,
+            "html/no-multiple-h1": "off",
             "html/indent": "off",
             "html/require-closing-tags": "off",
             "html/no-extra-spacing-attrs": "off",
