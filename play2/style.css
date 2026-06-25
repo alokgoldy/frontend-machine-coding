@@ -1,0 +1,29 @@
+body {
+  background: transparent;
+  color: #fcbe24;
+  padding: 0 24px;
+  margin: 0;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+  background-color: white;
+  color: black;
+}
+
+.inline-flex-c {
+  display: inline-flex;
+  background-color: palevioletred;
+ }
+
+.flex-c {
+  display: flex;
+  background-color: chocolate;
+}
+
+.child{
+  border-color: greenyellow;
+  border-style: solid;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flex vs Inline-Flex Demo</title>
+  <style>
+    /* General page styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    /* Gray dashed wrapper to show the parent's boundaries */
+    .container {
+      border: 2px dashed #999;
+      padding: 15px;
+      margin-bottom: 30px;
+      background-color: #fff;
+    }
+
+    /* Style for the children inside the flex boxes */
+    .child {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    /* ==========================================
+       THE CORE DIFFERENCE
+       ========================================== */
+
+    /* inline-flex: Shrinks to fit ONLY the width of its children */
+    .inline-flex-c {
+      display: inline-flex;
+      background-color: #e74c3c;
+      /* Red background */
+      padding: 5px;
+    }
+
+    /* flex: Expands to fill the FULL width of the container */
+    .flex-c {
+      display: flex;
+      background-color: #2ecc71;
+      /* Green background */
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>inline-flex (Shrinks to fit content)</h1>
+  <div class="container">
+    <div class="inline-flex-c">
+      <div class="child">child 1</div>
+      <div class="child">child 2</div>
+    </div>
+  </div>
+
+
+  <h1>flex (Takes up 100% width)</h1>
+  <div class="container">
+    <div class="flex-c">
+      <div class="child">child 1</div>
+      <div class="child">child 2</div>
+    </div>
+  </div>
+
+</body>
+
+</html>
