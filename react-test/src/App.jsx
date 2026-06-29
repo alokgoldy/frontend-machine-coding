@@ -15,6 +15,8 @@ import TicTacToe from './pages/TicTacToe';
 import Test from './pages/Test';
 import NestedProducts from './pages/NestedProducts';
 import TypeContactForm from './pages/TypeContactForm';
+import FileUpload from './pages/FileUpload';
+import SimpleFileUpload from './pages/SimpleFileUpload';
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
       <Route path='/tic-tac-toe' element={<TicTacToe />} />
       <Route path='/nested-products' element={<NestedProducts />} />
       <Route path='/type-contact-form' element={<TypeContactForm />} />
+      <Route path='/file-upload' element={<FileUpload />} />
+      <Route path='/simple-file-upload' element={<SimpleFileUpload />} />
       <Route path='/test' element={<Test />} />
     </Routes>
   );
