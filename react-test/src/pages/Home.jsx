@@ -7,6 +7,10 @@ function Home() {
       <Link to="/debouncedsearch">Debounced Search</Link>
       <br />
       <Link to="/nested-products">Nested Products</Link>
+      <br />
+      <Link to="/file-upload">File Upload with Progress Bar</Link>
+      <br />
+      <Link to="/simple-file-upload">Simple File Upload</Link>
     </div>
   );
 }
