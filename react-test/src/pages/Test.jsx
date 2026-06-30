@@ -37,7 +37,7 @@ export default function Test() {
           type='button'
           onClick={handleUpload}
           disabled={!file || isUploading}
-          className='btn'
+          className='upload-btn'
         >
           {isUploading ? 'Uploading...' : 'Upload File'}
         </button>
