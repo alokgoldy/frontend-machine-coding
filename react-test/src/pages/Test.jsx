@@ -14,6 +14,7 @@ export default function Test() {
   }
 
   const handleUpload = () => {
+    setIsUploading(true);
     console.log('hey...')
   }
 
@@ -37,7 +38,7 @@ export default function Test() {
           type='button'
           onClick={handleUpload}
           disabled={!file || isUploading}
-          className='upload-btn'
+          className={`upload-btn ${isUploading || !file ? 'disabled-button' : ''}`}
         >
           {isUploading ? 'Uploading...' : 'Upload File'}
         </button>
