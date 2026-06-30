@@ -26,7 +26,7 @@ export default function Test() {
         <input type='file' onChange={handleFileChange} className='file-input' />
 
         {file && (
-          <div className='fileBox'>
+          <div className='file-box'>
             <p><strong>Name:</strong> {file.name}</p>
             <p><strong>Size:</strong> {file.name}</p>
             <p><strong>Type:</strong> {file.type || 'Unknown'}</p>
@@ -37,8 +37,9 @@ export default function Test() {
           type='button'
           onClick={handleUpload}
           disabled={!file || isUploading}
+          className='btn'
         >
-
+          {isUploading ? 'Uploading...' : 'Upload File'}
         </button>
       </div>
     </div>
