@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-.d-container {
+/* .d-container {
   width: 300px;
   margin: 100px auto;
 }
@@ -51,21 +51,21 @@
 .a-search-input {
   width: 100%;
   padding: 8px;
-}
+} */
 
-.a-suggestions {
+/* .a-suggestions {
   position: absolute;
   width: 100%;
   border: 1px solid #ccc;
   background: #fff;
-  /* max-height: 150px; */
+  max-height: 150px;
   overflow-y: auto;
   z-index: 10;
-}
+} */
 
 
 
-.a-suggestions-user {
+/* .a-suggestions-user {
   padding: 8px;
   cursor: pointer;
   border-bottom: 1px solid #eee;
@@ -79,23 +79,23 @@
   border: 1px solid #eee;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+} */
 
-.input-group {
+/* .input-group {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
   margin-top: 10px;
-}
+} */
 
-.input-group input {
+/* .input-group input {
   flex: 1;
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
-}
+} */
 
-.task-item {
+/* .task-item {
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
@@ -103,9 +103,9 @@
   padding: 8px;
   background-color: #f9f9f9;
   border-radius: 4px;
-}
+} */
 
-.task-text {
+/* .task-text {
   cursor: pointer;
   margin-right: 10px;
   flex: 1;
@@ -114,13 +114,13 @@
 .action-buttons {
   display: flex;
   gap: 5px;
-}
+} */
 
-.action-buttons button {
+/* .action-buttons button {
   padding: 4px 8px;
   font-size: 0.8rem;
   cursor: pointer;
-}
+} */
 
 /* .crousel-container {
   position: relative;
