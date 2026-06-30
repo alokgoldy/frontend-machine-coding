@@ -10,8 +10,21 @@ export default function Test() {
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files?.[0] ?? null;
+
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+
     setFile(selectedFile);
-  }
+    setProgress(0);
+    setIsUploading(false);
+    setMessage(
+      selectedFile
+        ? `Selected: ${selectedFile.name}`
+        : `Choose a file and click upload.`
+    )
+  };
 
   const handleUpload = () => {
     setIsUploading(true);
