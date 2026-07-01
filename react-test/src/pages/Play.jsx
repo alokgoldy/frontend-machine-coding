@@ -82,6 +82,13 @@ export default function Play() {
     direction: 'asc'
   })
 
+  const handleSort = (key) => {
+    setSortConfig((curr) => ({
+      key,
+      direction:
+        curr.key === key && curr.direction === 'asc' ? 'desc' : 'asc'
+    }))
+  }
   const filteredEmployees = employees.filter((emp) => {
     const searchValue = search.toLowerCase();
     const matchesDepartment =
@@ -94,6 +101,10 @@ export default function Play() {
   })
 
 
+  const getArrow = (key) => {
+    if (sortConfig.key !== key) return '';
+    return sortConfig.direction === 'asc' ? ' ↑' : ' ↓'
+  }
   return (
     <div style={styles.page}>
       <div style={styles.container}>
@@ -132,13 +143,13 @@ export default function Play() {
           <thead>
             <tr>
               <th style={styles.th} onClick={() => handleSort('name')}>
-                Name
+                Name{getArrow('name')}
               </th>
-              <th style={styles.th}>
-                Department
+              <th style={styles.th} onClick={() => handleSort('department')}>
+                Department{getArrow('department')}
               </th>
-              <th style={styles.th}>
-                Salary
+              <th style={styles.th} onClick={() => handleSort('salary')}>
+                Salary{getArrow('salary')}
               </th>
             </tr>
           </thead>
