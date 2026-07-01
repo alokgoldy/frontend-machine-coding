@@ -82,6 +82,18 @@ export default function Play() {
     direction: 'asc'
   })
 
+  const filteredEmployees = employees.filter((emp) => {
+    const searchValue = search.toLowerCase();
+    const matchesDepartment =
+      department === 'All' || emp.department === department;
+
+    const matchesSearch = emp.name.toLowerCase().includes(searchValue) ||
+      emp.department.toLowerCase().includes(searchValue);
+
+    return matchesDepartment && matchesSearch;
+  })
+
+
   return (
     <div style={styles.page}>
       <div style={styles.container}>
@@ -131,7 +143,7 @@ export default function Play() {
             </tr>
           </thead>
           <tbody>
-            {employees.map((item) => (
+            {filteredEmployees.map((item) => (
               <tr key={item.id}>
                 <td style={styles.td}>{item.name}</td>
                 <td style={styles.td}>{item.department}</td>
