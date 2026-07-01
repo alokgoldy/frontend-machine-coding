@@ -1,5 +1,12 @@
 import { useState } from 'react';
 
+const employees = [
+  { id: 1, name: 'Amit Sharma', department: 'Engineering', salary: 85000 },
+  { id: 2, name: 'Neha Verma', department: 'Design', salary: 72000 },
+  { id: 3, name: 'Rohit Gupta', department: 'Product', salary: 91000 },
+  { id: 4, name: 'Priya Singh', department: 'Engineering', salary: 88000 },
+  { id: 5, name: 'Karan Mehta', department: 'HR', salary: 60000 },
+];
 
 const departments = ['All', 'Engineering', 'Design', 'Product', 'HR'];
 
@@ -48,7 +55,22 @@ const styles = {
     borderRadius: '8px',
     backgroundColor: '#ffffff'
   },
-  
+  table: {
+    width: '100%',
+    borderCollapse: 'collapse',
+    marginBottom: '16px'
+  },
+  th: {
+    border: '1px solid #e2e8f0',
+    padding: '12px',
+    textAlign: 'left',
+    backgroundColor: '#f1f5f9',
+    cursor: 'pointer'
+  },
+  td: {
+    border: '1px solid #e2e8f0',
+    padding: '12px'
+  }
 
 }
 
@@ -89,6 +111,35 @@ export default function Play() {
             ))}
           </select>
         </div>
+
+        <p style={styles.table}>
+          Search by text, filter by department, and click a header to sort.
+        </p>
+
+        <table style={styles.table}>
+          <thead>
+            <tr>
+              <th style={styles.th} onClick={() => handleSort('name')}>
+                Name
+              </th>
+              <th style={styles.th}>
+                Department
+              </th>
+              <th style={styles.th}>
+                Salary
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {employees.map((item) => (
+              <tr key={item.id}>
+                <td style={styles.td}>{item.name}</td>
+                <td style={styles.td}>{item.department}</td>
+                <td style={styles.td}>{item.salary}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   )
