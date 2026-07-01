@@ -17,6 +17,8 @@ import NestedProducts from './pages/NestedProducts';
 import TypeContactForm from './pages/TypeContactForm';
 import FileUpload from './pages/FileUpload';
 import SimpleFileUpload from './pages/SimpleFileUpload';
+import DataTable from './pages/DataTable';
+import Play from './pages/Play';
 
 function App() {
   return (
@@ -38,7 +40,9 @@ function App() {
       <Route path='/type-contact-form' element={<TypeContactForm />} />
       <Route path='/file-upload' element={<FileUpload />} />
       <Route path='/simple-file-upload' element={<SimpleFileUpload />} />
+      <Route path='/data-table' element={<DataTable />} />
       <Route path='/test' element={<Test />} />
+      <Route path='/play' element={<Play />} />
     </Routes>
   );
 }

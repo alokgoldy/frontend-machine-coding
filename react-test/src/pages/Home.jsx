@@ -11,6 +11,8 @@ function Home() {
       <Link to="/file-upload">File Upload with Progress Bar</Link>
       <br />
       <Link to="/simple-file-upload">Simple File Upload</Link>
+      <br />
+      <Link to="/data-table">Data Table with Sorting and Filtering</Link>
     </div>
   );
 }
