@@ -70,7 +70,19 @@ const styles = {
   td: {
     border: '1px solid #e2e8f0',
     padding: '12px'
-  }
+  }empty: {
+    textAlign: 'center',
+    color: '#64748b',
+  },
+  helper: {
+    marginBottom: '16px',
+    color: '#334155',
+  },
+  link: {
+    color: '#2563eb',
+    textDecoration: 'none',
+    fontWeight: 600,
+  },
 
 }
 
