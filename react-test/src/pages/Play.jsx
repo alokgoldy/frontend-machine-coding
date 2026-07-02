@@ -70,7 +70,7 @@ const styles = {
   td: {
     border: '1px solid #e2e8f0',
     padding: '12px'
-  }empty: {
+  },empty: {
     textAlign: 'center',
     color: '#64748b',
   },
