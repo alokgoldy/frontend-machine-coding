@@ -70,7 +70,7 @@ const styles = {
   td: {
     border: '1px solid #e2e8f0',
     padding: '12px'
-  },empty: {
+  }, empty: {
     textAlign: 'center',
     color: '#64748b',
   },
@@ -166,13 +166,21 @@ export default function Play() {
             </tr>
           </thead>
           <tbody>
-            {filteredEmployees.map((item) => (
-              <tr key={item.id}>
-                <td style={styles.td}>{item.name}</td>
-                <td style={styles.td}>{item.department}</td>
-                <td style={styles.td}>{item.salary}</td>
-              </tr>
-            ))}
+            {filteredEmployees.length > 0 ?
+              (filteredEmployees.map((item) => (
+                <tr key={item.id}>
+                  <td style={styles.td}>{item.name}</td>
+                  <td style={styles.td}>{item.department}</td>
+                  <td style={styles.td}>{item.salary}</td>
+                </tr>
+              )))
+              : (
+                <tr>
+                  <td colSpan="3">
+                    No Matching records found.
+                  </td>
+                </tr>
+              )}
           </tbody>
         </table>
       </div>
